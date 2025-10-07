@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "convocatorias",
+  "info": {
+    "singularName": "convocatoria",
+    "pluralName": "convocatorias",
+    "displayName": "Convocatoria"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "convocatoria": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "hoteles": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "programa": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}
