@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vouchers",
+  "info": {
+    "singularName": "voucher",
+    "pluralName": "vouchers",
+    "displayName": "Voucher"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titular_name": {
+      "type": "string",
+      "required": true
+    },
+    "bank": {
+      "type": "text",
+      "required": true
+    },
+    "account_number": {
+      "type": "biginteger",
+      "required": true
+    },
+    "clabe": {
+      "type": "biginteger",
+      "required": false
+    },
+    "file": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

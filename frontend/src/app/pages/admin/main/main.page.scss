@@ -1,0 +1,52 @@
+@import 'src/theme/variables.scss';
+
+
+.card-form {
+    width: 100%;
+    min-height: 30rem;
+    
+    ion-button{
+        width: 50%;
+    }
+
+    .custom-file-upload {
+        width: 100%;
+        // height: 2rem;
+        padding: 0.5rem;
+        text-align: center;
+        margin: 1.5rem auto;
+
+        .upload_file {
+            display: none;
+        }
+
+        .btn-upload {
+            cursor: pointer;
+            border: 2px solid $black;
+            // margin: 1.5rem auto;
+            border-radius: 10px;
+            padding: 8px 16px;
+            display: block;
+            margin: 0 auto;
+            width: 100%; // o 100%, lo que quieras
+            text-align: center;
+
+            &:active {
+                transform: scale(0.90) !important;
+            }
+
+            &:focus-within {
+                transform: scale(0.92);
+            }
+
+            &:hover {
+                color: $principal-2;
+                border: 2px solid $principal-2;
+
+                // text-decoration: underline;
+                // font-weight: $bold;
+            }
+
+        }
+    }
+}

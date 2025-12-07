@@ -1,0 +1,157 @@
+<app-header>Mis acciones</app-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col sizeSm="4" size="12">
+        <ion-card class="card-form">
+          <ion-card-header>
+            <ion-card-title>Pagos</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label position="stacked">Numero de factura</ion-label>
+              <ion-input type="number" min="0" placeholder="Ej:#1093845"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="stacked">Cantidad pagada</ion-label>
+              <ion-input type="number" min="0" placeholder="Ej: $1000"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="stacked">fecha de pago</ion-label>
+              <ion-input type="date"></ion-input>
+            </ion-item>
+            <ion-item lines="none" class="file-upload-item">
+              <ion-label position="stacked">Subir comprobante de pago</ion-label>
+
+              <div class="custom-file-upload">
+                <input class="upload_file" type="file" accept=".png/.jpg/.jpeg" id="comprobante" />
+                <label for="comprobante" class="btn-upload">
+                  <ion-icon name="cloud-upload-outline"></ion-icon>
+                  Elegir archivo
+                </label>
+                <!-- <span id="file-name">Ningún archivo seleccionado</span> -->
+              </div>
+            </ion-item>
+
+            <div class="cont-button">
+              <ion-button routerLink="/dashboard_a_p_c" fill="clear">
+                Enviar pagos
+              </ion-button>
+              <div class="cont-link">
+                <p>Datos de pago: <a routerLink="/register">¡Click aqui!</a></p>
+
+              </div>
+            </div>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col sizeSm="4" size="12">
+        <ion-card class="card-form">
+          <ion-card-header>
+            <ion-card-title>Articulos (Mostrar solo para ponentes)</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label position="stacked">Nombre del articulo</ion-label>
+              <ion-input type="text" placeholder="Ingresa aqui el nombre del articulo..."></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="stacked">Co-autores</ion-label>
+              <ion-select placeholder="Selecciona los coautores de este articulo">
+                <ion-select-option value="author1">Autor 1</ion-select-option>
+                <ion-select-option value="author2">Autor 2</ion-select-option>
+                <ion-select-option value="author3">Autor 3</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item lines="none" class="file-upload-item">
+              <ion-label position="stacked">Subir Archivos</ion-label>
+
+              <div class="custom-file-upload files-article-slide">
+                <div class="article_file">
+                  <input class="upload_file" type="file" accept=".docx,.pdf" id="article" />
+                  <label for="article" class="btn-upload">
+                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                    Subir articulo
+                  </label>
+                  <!-- <span id="file-name">Ningún archivo seleccionado</span> -->
+                </div>
+                <div class="slide_file">
+                  <input class="upload_file" type="file" accept=".pptx, .pdf" id="slide" />
+                  <label for="slide" class="btn-upload">
+                    <ion-icon name="cloud-upload-outline"></ion-icon>
+                    Subir presenación (Opcional)
+                  </label>
+                  <!-- <span id="file-name">Ningún archivo seleccionado</span> -->
+                </div>
+              </div>
+            </ion-item>
+
+            <div class="cont-button">
+              <ion-button routerLink="/dashboard_a_p_c" fill="clear">
+                Subir articulo
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col sizeSm="4" size="12">
+        <ion-card class="card-form">
+          <ion-card-header>
+            <ion-card-title>Talleres</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="workshop-list">
+              <ion-item><ion-label>Taller 1</ion-label></ion-item>
+              <ion-item><ion-label>Taller 2</ion-label></ion-item>
+              <ion-item><ion-label>Taller 3</ion-label></ion-item>
+              <ion-item><ion-label>Taller 4</ion-label></ion-item>
+              <ion-item><ion-label>Taller 5</ion-label></ion-item>
+              <ion-item><ion-label>Taller 6</ion-label></ion-item>
+              <ion-item><ion-label>Taller 7</ion-label></ion-item>
+              <ion-item><ion-label>Taller 8</ion-label></ion-item>
+              <ion-item><ion-label>Taller 9</ion-label></ion-item>
+              <ion-item><ion-label>Taller 10</ion-label></ion-item>
+              <ion-item><ion-label>Taller 11</ion-label></ion-item>
+              <ion-item><ion-label>Taller 12</ion-label></ion-item>
+              <ion-item><ion-label>Taller 13</ion-label></ion-item>
+              <ion-item><ion-label>Taller 14</ion-label></ion-item>
+              <ion-item><ion-label>Taller 15</ion-label></ion-item>
+              <ion-item><ion-label>Taller 16</ion-label></ion-item>
+              <ion-item><ion-label>Taller 17</ion-label></ion-item>
+              <ion-item><ion-label>Taller 18</ion-label></ion-item>
+              <ion-item><ion-label>Taller 19</ion-label></ion-item>
+              <ion-item><ion-label>Taller 20</ion-label></ion-item>
+            </div>
+
+            <div class="cont-button">
+              <ion-button routerLink="/dashboard_a_p_c" fill="clear">
+                Seleccionar taller
+              </ion-button>
+            </div>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="gafete-form">
+          <ion-card-header>
+            <ion-card-title>Descargar gafete</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-card-subtitle>Podras descargar tu gafete en cuanto un moderador haya aceptado tu
+              pago</ion-card-subtitle>
+            <div class="cont-button">
+              <ion-button routerLink="/dashboard_a_p_c" fill="clear">
+                Descargar gafete
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

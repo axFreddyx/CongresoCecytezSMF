@@ -1,0 +1,49 @@
+<app-header>Mis Acciones</app-header>
+<ion-content>
+  <div class="filters">
+    <ion-searchbar class="search-input" placeholder="Buscar por nombre (Ingresa el nombre del articulo)"
+      inputmode="decimal" type="decimal" [debounce]="250" showCancelButton="always"></ion-searchbar>
+    <div class="btn-filters-container">
+      <ion-label>Filtrar por:</ion-label>
+      <div class="btn-filters">
+        <ion-button fill="outline" color="success" size="small">Aceptados</ion-button>
+        <ion-button fill="outline" color="danger" size="small">Rechazados</ion-button>
+      </div>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Archivo</th>
+        <th>Autores</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Investigación sobre Energías Renovables</td>
+        <td><a href="#">energia_renovables.pdf</a></td>
+        <td>Juan Pérez, María López</td>
+        <td>
+          <ion-button fill="outline" color="medium" size="small">Comentarios</ion-button>
+          <ion-button fill="outline" size="small" color="success">Aceptar</ion-button>
+          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Estudio de la Biodiversidad en México</td>
+        <td><a href="#">biodiversidad_mexico.pdf</a></td>
+        <td>Ana García, Luis Martínez</td>
+        <td>
+          <ion-button fill="outline" color="medium" size="small">Comentarios</ion-button>
+          <ion-button fill="outline" size="small" color="success">Aceptar</ion-button>
+          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>

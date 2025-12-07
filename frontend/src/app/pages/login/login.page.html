@@ -1,0 +1,43 @@
+<app-header>Iniciar Sesión</app-header>
+<ion-content>
+
+  <div class="form-container">
+
+    <ion-card class="card-form">
+      <ion-card-header>
+        <ion-card-title>Iniciar Sesión</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <!-- User type hidden -->
+
+        <!-- Email -->
+        <ion-item lines="none">
+          <ion-label position="stacked">Correo Electrónico o usuario</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <!-- Password -->
+        <ion-item lines="none">
+          <ion-label position="stacked">Folio de acceso (Tu contraseña)</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+
+        <!-- Button -->
+        <div class="cont-button">
+          <ion-button routerLink="/dashboard_a" fill="clear">
+            Iniciar Sesión
+          </ion-button>
+          <div class="cont-link">
+            <p>¿No tienes cuenta? <a routerLink="/register">¡Registrate!</a></p>
+            <p>¿Olvidaste tu contraseña? <a routerLink="">¡Recuperala!</a></p>
+          </div>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+
+
+  </div>
+</ion-content>

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prices",
+  "info": {
+    "singularName": "price",
+    "pluralName": "prices",
+    "displayName": "Price"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "price_asistente": {
+      "type": "decimal",
+      "required": true
+    },
+    "price_ponente": {
+      "type": "decimal",
+      "required": true
+    },
+    "price_taller": {
+      "type": "decimal",
+      "required": true,
+      "unique": false
+    },
+    "surcharge": {
+      "type": "decimal",
+      "required": true
+    },
+    "discount_cecytez_member": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<app-header>Panel de control</app-header>
+
+<ion-content>
+  <div class="dashboard-container">
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12" sizeSm="6">
+          <ion-card class="card-option" routerLink="/users">
+            <ion-card-header class="card-header">
+              <ion-icon name="people-outline" class="card-icon"></ion-icon>
+              <ion-card-title class="card-title">Ver Usuarios</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-content">
+              <p>Accede a la lista de usuarios registrados en el sistema.</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="12" sizeSm="6">
+          <ion-card class="card-option" routerLink="/comprobantes">
+            <ion-card-header class="card-header">
+              <ion-icon name="document-text-outline" class="card-icon"></ion-icon>
+              <ion-card-title class="card-title">Ver Comprobantes de Pago</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-content">
+              <p>Revisa y gestiona los comprobantes de pago enviados por los usuarios.</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>

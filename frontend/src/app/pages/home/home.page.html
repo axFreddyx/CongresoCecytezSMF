@@ -1,0 +1,168 @@
+<ion-content>
+  <app-header>Inicio</app-header>
+
+  <!-- MENSAJES -->
+  <!-- *ngIf="msg"
+  [message]="msg" -->
+  <ion-toast
+    color="success"
+    duration="2000">
+  </ion-toast>
+
+  <!-- *ngIf="err"
+  [message]="err" -->
+  <ion-toast
+    color="danger"
+    duration="2000">
+  </ion-toast>
+
+  <!-- TITULOS -->
+  <div class="welcome">
+    <!-- *ngIf="user?.role_id === 5" -->
+    <ion-button
+      routerLink="/main-view"
+      expand="block">
+      Actualizar el contenido principal
+    </ion-button>
+
+    <!-- <h4 class="title">{{ main?.title }}</h4>
+    <h5 class="subtitle">{{ main?.description }}</h5> -->
+
+    <div class="imgPrincipal"></div>
+  </div>
+
+  <!-- ÁREA DE REGISTRO -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Área de Registro</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        Si deseas registrarte como Asistente o Ponente en el
+        <strong>II Congreso Internacional en Educación Media Superior</strong>,
+        da click en el siguiente botón.
+      </p>
+
+      <ion-button expand="block" routerLink="/registro-view">
+        REGISTRO AL II CONGRESO INTERNACIONAL EN EMS
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- INFORMACIÓN DE INTERÉS -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Información de Interés</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <!-- <p>{{ info?.date_location }}</p> -->
+
+      <!-- MESAS DE TRABAJO -->
+      <div class="info-item">
+        <p class="title">MESAS DE TRABAJO</p>
+        <p>Información sobre las diferentes mesas de trabajo</p>
+        <a routerLink="/worktable-view">Ver Mesas de Trabajo</a>
+      </div>
+
+      <!-- REQUISITOS -->
+      <div class="info-item">
+        <p class="title">REQUISITOS PARA ENVIAR PONENCIA</p>
+        <p>Consulta los requisitos para enviar tu ponencia</p>
+        <!-- <ion-button fill="clear" (click)="openFile(info?.name_file_req)">
+          Ver Requisitos
+        </ion-button> -->
+      </div>
+
+      <!-- INSTRUCCIONES -->
+      <div class="info-item">
+        <p class="title">INSTRUCCIONES PARA REGISTRO</p>
+        <p>Consulta las instrucciones para tu registro</p>
+        <!-- <ion-button fill="clear" (click)="openFile(info?.name_file_instrucciones)">
+          Ver Instrucciones
+        </ion-button> -->
+      </div>
+
+      <!-- CALENDARIO -->
+      <div class="info-item">
+        <p class="title">CALENDARIO DE INSCRIPCIÓN</p>
+        <p>Información sobre fechas</p>
+        <!-- <ion-button fill="clear" (click)="openFile(info?.name_file_calendario)">
+          Ver Calendario
+        </ion-button> -->
+      </div>
+
+      <!-- PLATAFORMA -->
+      <div class="info-item">
+        <p class="title">PLATAFORMA</p>
+        <p>Reporta errores o dudas</p>
+        <a routerLink="/enviar-reporte-view">Enviar correo</a>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- CONVOCATORIA -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Convocatoria</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <div class="conv-item">
+        <p class="title">CONVOCATORIA</p>
+        <p>Descarga aquí la convocatoria</p>
+        <!-- <ion-button (click)="openFile(convocatoria?.name_file_convocatoria)">
+          Abrir Convocatoria
+        </ion-button> -->
+      </div>
+
+      <div class="conv-item">
+        <p class="title">PROGRAMA</p>
+        <p>Descarga aquí el programa</p>
+        <!-- <ion-button (click)="openFile(convocatoria?.name_file_programa)">
+          Abrir Programa
+        </ion-button> -->
+      </div>
+
+      <div class="conv-item">
+        <p class="title">HOTELES PARA CONGRESO</p>
+        <p>Lista de hoteles con convenio</p>
+        <!-- <ion-button (click)="openFile(convocatoria?.name_file_hoteles)">
+          Ver Hoteles
+        </ion-button> -->
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- COSTOS -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Costos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="center">
+      <!-- <img
+        [src]="costo ? 'assets/images/costos/' + costo.name_file_costos : 'assets/images/placeholder.png'"
+        class="imageCostos"> -->
+    </ion-card-content>
+  </ion-card>
+
+  <!-- CONTACTO -->
+  <ion-footer class="footer-container">
+    <p>Contacto</p>
+   
+
+    <ion-card-content>
+      <!-- <p><strong>Teléfono: </strong>{{ contacto?.telefono }}</p>
+      <p><strong>Correo: </strong>{{ contacto?.email }}</p>
+      <p><strong>Horario: </strong>{{ contacto?.horario }}</p>
+      <p><strong>Dirección: </strong>{{ contacto?.address }}</p> -->
+    </ion-card-content>
+  </ion-footer>
+
+</ion-content>

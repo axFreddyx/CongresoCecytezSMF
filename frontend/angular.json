@@ -112,6 +112,7 @@
               }
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
+           
             "scripts": []
           },
           "configurations": {

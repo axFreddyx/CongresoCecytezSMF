@@ -1,0 +1,23 @@
+.card-form{
+    width: 70%;
+    margin: 5rem auto;
+    .cont-button{
+        width: 50%;
+        margin: 2rem auto;
+        ion-button{
+            margin:2rem auto;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .card-form{
+        width: 90%;
+        .cont-button{
+        width: 90%;
+        margin: 2rem auto;
+        ion-button{
+            margin:2rem auto;
+        }
+    }
+    }
+}

@@ -1,0 +1,83 @@
+<app-header>Panel de control</app-header>
+
+<ion-content>
+  <div class="dashboard-container">
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12" sizeSm="3">
+          <ion-card class="card-option" routerLink="/main">
+            <ion-card-header class="card-header">
+              <ion-icon name="apps-outline" class="card-icon"></ion-icon>
+              <ion-card-title class="card-title">Principal</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-content">
+              <p>Edita todo lo relacionado con el contenido principal.</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" sizeSm="3">
+          <ion-card class="card-option" routerLink="/talleres">
+            <ion-card-header class="card-header">
+              <ion-icon name="school-outline" class="card-icon"></ion-icon>
+              <ion-card-title class="card-title">Talleres</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-content">
+              <p>Gestiona Todo lo relacionado a los talleres.</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" sizeSm="3">
+          <ion-card class="card-option" routerLink="/mesas">
+            <ion-card-header class="card-header">
+              <ion-icon name="briefcase-outline" class="card-icon"></ion-icon>
+              <ion-card-title class="card-title">Mesas de trabajo</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-content">
+              <p>Gestiona todo lo relacionado a las mesas de trabajo.</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" sizeSm="3">
+          <ion-card class="card-option" routerLink="/users">
+            <ion-card-header class="card-header">
+              <ion-icon name="people-outline" class="card-icon"></ion-icon>
+              <ion-card-title class="card-title">Usuarios</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-content">
+              <p>Gestiona todo lo relacionado con los usuarios del sistema.</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" sizeSm="6">
+          <ion-card class="card-option" routerLink="/dashboard_d">
+            <ion-card-header class="card-header">
+              <ion-icon name="library-outline" class="card-icon"></ion-icon>
+
+              <ion-card-title class="card-title">Articulos</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-content">
+              <p>Visualiza y asigna los articulos.</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="12" sizeSm="6">
+          <ion-card class="card-option" routerLink="/comprobantes">
+            <ion-card-header class="card-header">
+              <ion-icon name="document-text-outline" class="card-icon"></ion-icon>
+              <ion-card-title class="card-title">Comprobantes de Pago</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-content">
+              <p>Revisa y gestiona los comprobantes de pago enviados por los usuarios.</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>

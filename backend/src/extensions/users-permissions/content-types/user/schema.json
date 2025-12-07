@@ -66,32 +66,57 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "nombre": {
+    "name": {
       "type": "string",
-      "minLength": 3,
       "required": true
     },
-    "apellidos": {
+    "last_name": {
       "type": "string",
-      "minLength": 3,
       "required": true
     },
-    "telefono": {
+    "phone_number": {
       "type": "biginteger",
       "required": true
     },
-    "origen": {
-      "type": "string",
+    "origin": {
+      "type": "text",
       "required": true
     },
-    "institucion": {
-      "type": "string",
+    "institution": {
+      "type": "text",
       "required": true
     },
-    "miembro_cecytez": {
+    "cecytez_member": {
       "type": "boolean",
       "required": true,
       "default": false
+    },
+    "isLogged": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "users_id"
+    },
+    "work_table": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::work-table.work-table",
+      "inversedBy": "user_ids"
+    },
+    "workshops": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::workshop.workshop",
+      "inversedBy": "users"
+    },
+    "gender": {
+      "type": "string",
+      "required": true
     }
   }
 }

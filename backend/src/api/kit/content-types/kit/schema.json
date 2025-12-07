@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kits",
+  "info": {
+    "singularName": "kit",
+    "pluralName": "kits",
+    "displayName": "Kit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "delivered": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "user_kit_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "user_deliver_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

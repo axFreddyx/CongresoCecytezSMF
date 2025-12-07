@@ -1,0 +1,54 @@
+<app-header>Mis Acciones</app-header>
+<ion-content>
+  <div class="filters">
+    <div class="btn-filters-container">
+      <ion-label>Filtrar por:</ion-label>
+      <div class="cont-btns-filter">
+        <div class="btn-filters">
+          <ion-button fill="outline" color="success" size="small">Aceptados</ion-button>
+          <ion-button fill="outline" color="danger" size="small">Rechazados</ion-button>
+        </div>
+        <div class="btn-filters">
+          <ion-button fill="outline" color="success" size="small">Validados</ion-button>
+          <ion-button fill="outline" color="danger" size="small">No Validados</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Usuario</th>
+        <th>Pago</th>
+        <th>Archivo</th>
+        <th>Validado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Juan Pérez</td>
+        <td>$1000</td>
+        <td><a href="#">comprobante_de_pago_Juan_Perez.pdf</a></td>
+        <td>No</td>
+        <td>
+          <ion-button fill="outline" size="small" color="success">Aceptar</ion-button>
+          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
+        </td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>María López</td>
+        <td>$1200</td>
+        <td><a href="#">comprobante_de_pago_Maria_Lopez.pdf</a></td>
+        <td>Si</td>
+        <td>
+          <ion-button fill="outline" size="small" color="success">Aceptar</ion-button>
+          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>

@@ -1,0 +1,56 @@
+<app-header>Mis Acciones</app-header>
+<ion-content>
+  <div class="filters">
+    <ion-searchbar class="search-input" placeholder="Buscar por nombre (Ingresa el nombre completo)"
+      inputmode="decimal" type="decimal" [debounce]="250" showCancelButton="always"></ion-searchbar>
+    <div class="btn-filters-container">
+      <ion-label>Es miembro cecytez:</ion-label>
+      <div class="btn-filters">
+        <ion-button fill="outline" color="success" size="small">Si</ion-button>
+        <ion-button fill="outline" color="danger" size="small">No</ion-button>
+      </div>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre completo</th>
+        <th>Nombre de usuario</th>
+        <th>Telefono</th>
+        <th>Email</th>
+        <th>Genero</th>
+        <th>Miembro Cecytez</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Juan Pérez</td>
+        <td>xJuanX</td>
+        <td>1234567890</td>
+        <td>Correo@correo.com</td>
+        <td>Masculino</td>
+        <td>No</td>
+        <td>
+          <ion-button fill="outline" size="small" color="warning">Editar</ion-button>
+          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>María López</td>
+        <td>xMariax</td>
+        <td>0987654321</td>
+        <td>Correo2@correo.com</td>
+        <td>Femenino</td>
+        <td>Si</td>
+        <td>
+          <ion-button fill="outline" size="small" color="warning">Editar</ion-button>
+          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ion-content>

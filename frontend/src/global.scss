@@ -24,6 +24,7 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+@import "./theme/variables.scss";
 
 /**
  * Ionic Dark Mode
@@ -34,4 +35,234 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+
+
+/* ============================
+   ESTILO GENERAL
+============================ */
+ion-content {
+    //   --background: linear-gradient(180deg, $secundario-2 0%, $white 100%);
+    font-family: $font-principal;
+    padding: 16px;
+}
+
+.btn-create{
+    width: 75%;
+    margin: 2rem auto;
+}
+
+.filters {
+    border-bottom: 2px solid rgba($secundario, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    width: 90%;
+
+    .search-input {
+        width: 75%;
+    }
+
+    .btn-filters-container {
+        display: block;
+        text-align: center;
+        width: 25%;
+    }
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    // margin-bottom: 16px;
+    margin: 16px auto;
+    text-align: center;
+
+    th,
+    td {
+        border: 1px solid rgba($gris, 0.3);
+        padding: 8px;
+    }
+
+    th {
+        background-color: $principal;
+        color: $white;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba($secundario, 0.2);
+    }
+}
+
+// =====================================
+// === DASHBOARD'S ADMIN & MODERADOR ===
+// =====================================
+
+.dashboard-container {
+    padding: 20px;
+}
+
+/* =============================
+   CARD OPCIONES
+============================= */
+.card-option {
+    border-radius: 18px;
+    background: $white;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba($secundario, 0.3);
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0px 12px 28px rgba($principal, 0.25);
+        border-color: $principal;
+    }
+
+    .card-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 10px;
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: $principal;
+            margin-bottom: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: $bold;
+            color: $principal-2;
+            text-align: center;
+        }
+    }
+
+    .card-content {
+        text-align: center;
+        color: $tercero-2;
+        font-size: 0.95rem;
+        line-height: 1.3rem;
+    }
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 768px) {
+    .card-option {
+        margin-bottom: 20px;
+
+        .card-header {
+            .card-icon {
+                font-size: 2rem;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        .card-content {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .card-option {
+        .card-header {
+            .card-icon {
+                font-size: 1.8rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+        }
+
+        .card-content {
+            font-size: 0.85rem;
+        }
+    }
+}
+
+// ====================================================
+// === FORMULARIOS LOGIN, REGISTER, DASHBOARD A P C ===
+// ====================================================
+
+.card-form {
+    border-radius: 18px !important;
+    background: $white;
+    box-shadow: 0px 10px 22px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba($secundario, 0.35);
+    padding-bottom: 10px;
+    animation: fadeInUp 0.6s ease both;
+    margin: 0 auto;
+    min-height: 20rem;
+
+    /* ============================
+     TITULO
+  ============================ */
+    ion-card-title {
+        font-weight: $bold;
+        color: $principal;
+        font-size: 1.5rem;
+        text-align: center;
+        padding-bottom: 4px;
+    }
+
+    /* ============================
+     CAMPOS DE FORMULARIO
+  ============================ */
+    ion-item {
+        --background: transparent;
+        --border-color: rgba($secundario, 0.45);
+        --highlight-color-focused: $principal-2;
+        border-radius: 12px;
+        margin-top: 14px;
+
+        ion-label {
+            color: $tercero-2 !important;
+            font-weight: 600;
+        }
+
+        ion-input,
+        ion-select {
+            font-size: 0.95rem;
+            color: $black;
+            border-bottom: 2px solid $secundario;
+            padding-bottom: 4px;
+        }
+    }
+
+    .cont-button {
+        ion-button {
+            background-color: $principal;
+            --background-hover: $principal-2;
+            --background-activated: $principal-2;
+            color: $white;
+            font-weight: $bold;
+            border-radius: 12px;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.18);
+            display: block;
+            margin: 0 auto;
+
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+
+        .cont-link {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+    }
+}
