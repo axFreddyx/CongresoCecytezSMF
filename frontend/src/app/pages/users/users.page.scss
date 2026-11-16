@@ -1,0 +1,42 @@
+@import 'src/theme/variables.scss';
+
+.cont-filters {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align:center;
+    .btn-filters-container {
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .btn-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .roles ion-button {
+        min-width: 110px;
+        text-transform: none;
+    }
+
+    .filters{
+        justify-content: center;
+        width: 100%;
+    }
+
+}
+
+.cont-button{
+    ion-button{
+        background-color:$principal;
+        border-radius: 1.1rem;
+        color: $white;
+    }
+}

@@ -1,18 +1,37 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
 
-$principal: #781005;
-$secundario: #B9975B;
-$tercero: #97999B;
-$principal-2: #9B2242;
-$secundario-2: #DDCBA4;
-$tercero-2: #53565A;
-$gris: #323232;
-$font-principal: "Montserrat", sans-serif;
-$white: #fff;
-$black: #000;
-$bold: 700;
-$success: #BCF5AB;
-$success-dark: #1E7804;
-$error: #FAAAAA;
-$error-dark: #B90202;
+:root {
+  --principal: #781005;
+  --secundario: #B9975B;
+  --tercero: #97999B;
+  --principal-2: #9B2242;
+  --secundario-2: #DDCBA4;
+  --tercero-2: #53565A;
+  --gris: #323232;
+  --font-principal: "Montserrat", sans-serif;
+  --white: #fff;
+  --black: #000;
+  --bold: 700;
+  --success: #BCF5AB;
+  --success-dark: #1E7804;
+  --error: #FAAAAA;
+  --error-dark: #B90202;
+}
+
+// SCSS variables referenciando las CSS variables
+$principal: var(--principal);
+$secundario: var(--secundario);
+$tercero: var(--tercero);
+$principal-2: var(--principal-2);
+$secundario-2: var(--secundario-2);
+$tercero-2: var(--tercero-2);
+$gris: var(--gris);
+$font-principal: var(--font-principal);
+$white: var(--white);
+$black: var(--black);
+$bold: var(--bold);
+$success: var(--success);
+$success-dark: var(--success-dark);
+$error: var(--error);
+$error-dark: var(--error-dark);

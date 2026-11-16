@@ -23,15 +23,15 @@
       "type": "date",
       "required": true
     },
-    "flie": {
+    "file": {
       "type": "media",
       "multiple": true,
       "required": true,
       "allowedTypes": [
-        "files"
+        "images"
       ]
     },
-    "user_id": {
+    "user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
@@ -45,6 +45,21 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "isRejected": {
+      "type": "boolean",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "validated"
+            },
+            true
+          ]
+        }
+      },
+      "required": true,
+      "default": false
     }
   }
 }

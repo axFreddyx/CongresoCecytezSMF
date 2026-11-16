@@ -1,4 +1,4 @@
-<app-header>Iniciar Sesión</app-header>
+<app-header></app-header>
 <ion-content>
 
   <div class="form-container">
@@ -15,18 +15,18 @@
         <!-- Email -->
         <ion-item lines="none">
           <ion-label position="stacked">Correo Electrónico o usuario</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="data.identifier"></ion-input>
         </ion-item>
 
         <!-- Password -->
         <ion-item lines="none">
           <ion-label position="stacked">Folio de acceso (Tu contraseña)</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="data.password"></ion-input>
         </ion-item>
 
         <!-- Button -->
         <div class="cont-button">
-          <ion-button routerLink="/dashboard_a" fill="clear">
+          <ion-button (click)="login()" fill="clear">
             Iniciar Sesión
           </ion-button>
           <div class="cont-link">

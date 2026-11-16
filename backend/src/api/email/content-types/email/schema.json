@@ -1,0 +1,12 @@
+{
+  "collectionName": "emails",
+  "info": {
+    "singularName": "email",
+    "pluralName": "emails",
+    "displayName": "Email"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {}
+}

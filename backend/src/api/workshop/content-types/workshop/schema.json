@@ -25,6 +25,10 @@
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "workshops"
+    },
+    "description": {
+      "type": "text",
+      "required": true
     }
   }
 }

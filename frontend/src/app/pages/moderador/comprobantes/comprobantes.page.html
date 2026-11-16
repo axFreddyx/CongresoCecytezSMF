@@ -3,23 +3,41 @@
   <div class="filters">
     <div class="btn-filters-container">
       <ion-label>Filtrar por:</ion-label>
+
       <div class="cont-btns-filter">
         <div class="btn-filters">
-          <ion-button fill="outline" color="success" size="small">Aceptados</ion-button>
-          <ion-button fill="outline" color="danger" size="small">Rechazados</ion-button>
-        </div>
-        <div class="btn-filters">
-          <ion-button fill="outline" color="success" size="small">Validados</ion-button>
-          <ion-button fill="outline" color="danger" size="small">No Validados</ion-button>
+
+          <!-- ACEPTADOS -->
+          <ion-button fill="outline" color="success" size="small" (click)="filtrarAceptados()">
+            Aceptados
+          </ion-button>
+
+          <!-- RECHAZADOS -->
+          <ion-button fill="outline" color="danger" size="small" (click)="filtrarRechazados()">
+            Rechazados
+          </ion-button>
+
+          <!-- NO VALIDADOS / PENDIENTES -->
+          <ion-button fill="outline" color="warning" size="small" (click)="filtrarNoValidados()">
+            No validados
+          </ion-button>
+
+          <!-- TODOS (opcional) -->
+          <ion-button fill="outline" color="medium" size="small" (click)="filtrarTodo()">
+            Todos
+          </ion-button>
+
         </div>
       </div>
     </div>
   </div>
+
   <table>
     <thead>
       <tr>
         <th>Id</th>
-        <th>Usuario</th>
+        <th>Nombre Completo</th>
+        <th>Rol</th>
         <th>Pago</th>
         <th>Archivo</th>
         <th>Validado</th>
@@ -27,28 +45,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Juan Pérez</td>
-        <td>$1000</td>
-        <td><a href="#">comprobante_de_pago_Juan_Perez.pdf</a></td>
-        <td>No</td>
-        <td>
-          <ion-button fill="outline" size="small" color="success">Aceptar</ion-button>
-          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
+      <tr *ngFor="let c of comprobantes">
+        <td>{{c.id}}</td>
+        <td>{{c.user.name}} {{c.user.last_name}}</td>
+        <td>{{c.user.role.name}}</td>
+        <td>$ {{c.paid}}</td>
+        <td *ngFor="let f of files"><a [href]="url">{{f.name}}</a></td>
+        <td *ngIf="c.validated">Si</td>
+        <td *ngIf="!c.validated">No</td>
+        <td *ngIf="!c.validated && !c.isRejected">
+          <ion-button (click)="alert(c, false)" size="small" color="success">Aceptar</ion-button>
+          <ion-button (click)="alert(c, true)" size="small" color="danger">Rechazar</ion-button>
+        </td>
+        <td *ngIf="c.validated || c.isRejected">
+          <ion-button (click)="cancel_Validation(c)" size="small" color="warning">Cancelar Validación</ion-button>
         </td>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>María López</td>
-        <td>$1200</td>
-        <td><a href="#">comprobante_de_pago_Maria_Lopez.pdf</a></td>
-        <td>Si</td>
-        <td>
-          <ion-button fill="outline" size="small" color="success">Aceptar</ion-button>
-          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
-        </td>
-      </tr>
+
     </tbody>
   </table>
 </ion-content>

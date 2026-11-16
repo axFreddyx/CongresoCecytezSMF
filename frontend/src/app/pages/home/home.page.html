@@ -1,34 +1,20 @@
 <ion-content>
-  <app-header>Inicio</app-header>
+  <app-header></app-header>
 
   <!-- MENSAJES -->
-  <!-- *ngIf="msg"
-  [message]="msg" -->
-  <ion-toast
-    color="success"
-    duration="2000">
-  </ion-toast>
-
-  <!-- *ngIf="err"
-  [message]="err" -->
-  <ion-toast
-    color="danger"
-    duration="2000">
-  </ion-toast>
+  <ion-toast color="success" duration="2000"></ion-toast>
+  <ion-toast color="danger" duration="2000"></ion-toast>
 
   <!-- TITULOS -->
   <div class="welcome">
-    <!-- *ngIf="user?.role_id === 5" -->
-    <ion-button
-      routerLink="/main-view"
-      expand="block">
-      Actualizar el contenido principal
-    </ion-button>
+    <h4 class="title">Innovación y Futuro: Congreso Estatal CECYTEZ Zacatecas 2025</h4>
+    <h5 class="subtitle">
+      Evento académico donde la comunidad CECYTEZ comparte aprendizaje, innovación y experiencias.
+    </h5>
 
-    <!-- <h4 class="title">{{ main?.title }}</h4>
-    <h5 class="subtitle">{{ main?.description }}</h5> -->
-
-    <div class="imgPrincipal"></div>
+    <div class="imgPrincipal">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhHuEnTUOHr70K4d1lfZxySqtgdAtJmrvBtg&s" alt="Banner Congreso CECYTEZ">
+    </div>
   </div>
 
   <!-- ÁREA DE REGISTRO -->
@@ -44,7 +30,7 @@
         da click en el siguiente botón.
       </p>
 
-      <ion-button expand="block" routerLink="/registro-view">
+      <ion-button color="--principal" routerLink="/register">
         REGISTRO AL II CONGRESO INTERNACIONAL EN EMS
       </ion-button>
     </ion-card-content>
@@ -58,46 +44,35 @@
 
     <ion-card-content>
 
-      <!-- <p>{{ info?.date_location }}</p> -->
-
       <!-- MESAS DE TRABAJO -->
       <div class="info-item">
         <p class="title">MESAS DE TRABAJO</p>
-        <p>Información sobre las diferentes mesas de trabajo</p>
+        <p>Conoce las temáticas y actividades de las mesas de trabajo del congreso.</p>
         <a routerLink="/worktable-view">Ver Mesas de Trabajo</a>
       </div>
 
       <!-- REQUISITOS -->
       <div class="info-item">
         <p class="title">REQUISITOS PARA ENVIAR PONENCIA</p>
-        <p>Consulta los requisitos para enviar tu ponencia</p>
-        <!-- <ion-button fill="clear" (click)="openFile(info?.name_file_req)">
-          Ver Requisitos
-        </ion-button> -->
+        <p>Consulta los requisitos oficiales para enviar tu ponencia.</p>
       </div>
 
       <!-- INSTRUCCIONES -->
       <div class="info-item">
         <p class="title">INSTRUCCIONES PARA REGISTRO</p>
-        <p>Consulta las instrucciones para tu registro</p>
-        <!-- <ion-button fill="clear" (click)="openFile(info?.name_file_instrucciones)">
-          Ver Instrucciones
-        </ion-button> -->
+        <p>Guía paso a paso para completar tu registro al congreso.</p>
       </div>
 
       <!-- CALENDARIO -->
       <div class="info-item">
         <p class="title">CALENDARIO DE INSCRIPCIÓN</p>
-        <p>Información sobre fechas</p>
-        <!-- <ion-button fill="clear" (click)="openFile(info?.name_file_calendario)">
-          Ver Calendario
-        </ion-button> -->
+        <p>Revisa las fechas importantes del proceso de inscripción.</p>
       </div>
 
       <!-- PLATAFORMA -->
       <div class="info-item">
         <p class="title">PLATAFORMA</p>
-        <p>Reporta errores o dudas</p>
+        <p>Reporta errores o dudas sobre la plataforma del congreso.</p>
         <a routerLink="/enviar-reporte-view">Enviar correo</a>
       </div>
 
@@ -114,26 +89,17 @@
 
       <div class="conv-item">
         <p class="title">CONVOCATORIA</p>
-        <p>Descarga aquí la convocatoria</p>
-        <!-- <ion-button (click)="openFile(convocatoria?.name_file_convocatoria)">
-          Abrir Convocatoria
-        </ion-button> -->
+        <p>Descarga aquí la convocatoria oficial del congreso.</p>
       </div>
 
       <div class="conv-item">
         <p class="title">PROGRAMA</p>
-        <p>Descarga aquí el programa</p>
-        <!-- <ion-button (click)="openFile(convocatoria?.name_file_programa)">
-          Abrir Programa
-        </ion-button> -->
+        <p>Consulta el programa completo de actividades.</p>
       </div>
 
       <div class="conv-item">
         <p class="title">HOTELES PARA CONGRESO</p>
-        <p>Lista de hoteles con convenio</p>
-        <!-- <ion-button (click)="openFile(convocatoria?.name_file_hoteles)">
-          Ver Hoteles
-        </ion-button> -->
+        <p>Lista de hoteles con convenio para asistentes.</p>
       </div>
 
     </ion-card-content>
@@ -146,22 +112,49 @@
     </ion-card-header>
 
     <ion-card-content class="center">
-      <!-- <img
-        [src]="costo ? 'assets/images/costos/' + costo.name_file_costos : 'assets/images/placeholder.png'"
-        class="imageCostos"> -->
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Inscripción Asistente</th>
+            <th>Inscripción Ponente y colaboradores</th>
+            <th>Inscripción a talleres</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Normal</td>
+            <td>$1000</td>
+            <td>$1200</td>
+            <td>$300</td>
+          </tr>
+          <tr>
+            <td>Cargo despues de tiempo ($300)</td>
+            <td>$1300</td>
+            <td>$1500</td>
+            <td>$300</td>
+          </tr>
+          <tr>
+            <td>Si eres miembro CECyTEz</td>
+            <td>$800</td>
+            <td>$960</td>
+            <td>$300</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <img src="assets/images/costos/costos.png" class="imageCostos" alt="Costos del Congreso"> -->
     </ion-card-content>
   </ion-card>
 
   <!-- CONTACTO -->
   <ion-footer class="footer-container">
     <p>Contacto</p>
-   
 
     <ion-card-content>
-      <!-- <p><strong>Teléfono: </strong>{{ contacto?.telefono }}</p>
-      <p><strong>Correo: </strong>{{ contacto?.email }}</p>
-      <p><strong>Horario: </strong>{{ contacto?.horario }}</p>
-      <p><strong>Dirección: </strong>{{ contacto?.address }}</p> -->
+      <p><strong>Teléfono: </strong>492 000 0000</p>
+      <p><strong>Correo: </strong>congreso@cecytez.edu.mx</p>
+      <p><strong>Horario: </strong>Lunes a viernes de 9:00 a 16:00 hrs</p>
+      <p><strong>Dirección: </strong>Zacatecas, Zacatecas, México</p>
     </ion-card-content>
   </ion-footer>
 

@@ -78,17 +78,33 @@
       "type": "biginteger",
       "required": true
     },
-    "origin": {
-      "type": "text",
-      "required": true
-    },
     "institution": {
       "type": "text",
-      "required": true
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "isUserCongreso"
+            },
+            false
+          ]
+        }
+      },
+      "required": false
     },
     "cecytez_member": {
       "type": "boolean",
-      "required": true,
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "isUserCongreso"
+            },
+            false
+          ]
+        }
+      },
+      "required": false,
       "default": false
     },
     "isLogged": {
@@ -100,23 +116,89 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::article.article",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "isUserCongreso"
+            },
+            false
+          ]
+        }
+      },
       "inversedBy": "users_id"
     },
     "work_table": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::work-table.work-table",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isUserCongreso"
+            },
+            true
+          ]
+        }
+      },
       "inversedBy": "user_ids"
     },
     "workshops": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::workshop.workshop",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "isUserCongreso"
+            },
+            false
+          ]
+        }
+      },
       "inversedBy": "users"
     },
+    "cost": {
+      "type": "decimal",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "isUserCongreso"
+            },
+            false
+          ]
+        }
+      }
+    },
     "gender": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Masculino",
+        "Femenino"
+      ]
+    },
+    "state": {
       "type": "string",
-      "required": true
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "isUserCongreso"
+            },
+            false
+          ]
+        }
+      },
+      "required": false
+    },
+    "isUserCongreso": {
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }

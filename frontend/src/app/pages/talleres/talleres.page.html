@@ -1,199 +1,86 @@
 <app-header>Talleres</app-header>
 
 <ion-content>
-  <ion-button expand="block" class="btn-create">
+  <ion-button *ngIf="isLogged && isAdmin" (click)="openModal()" expand="block" class="btn-create">
     Crear Taller
   </ion-button>
 
   <ion-grid fixed>
     <!-- Fila 1 -->
     <ion-row>
-      <ion-col size="12" sizeSm="4">
+      <ion-col *ngFor="let t of talleres" size="12" sizeSm="4">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Taller 1</ion-card-title>
+            <ion-card-title>{{t.name}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 2</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 3</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
+          <ion-card-content>{{t.description}}</ion-card-content>
+          <div class="cont-taller">
+            <div class="capacity">{{t.users}}/{{t.capacity}}</div>
+            <div *ngIf="isLogged && isAdmin" class="actions">
+              <ion-icon (click)="openModalUpdate(t)" color="warning" name="create-outline"></ion-icon>
+              <ion-icon (click)="alert(t)" color="danger" name="trash-outline"></ion-icon>
+            </div>
+          </div>
         </ion-card>
       </ion-col>
     </ion-row>
-    <!-- Fila 2 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 4</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 5</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 6</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 3 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 7</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 8</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 9</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 4 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 10</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 11</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 12</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 5 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 13</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 14</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 15</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 6 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 16</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 17</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 18</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 7 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 19</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Taller 20</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4"></ion-col>
-    </ion-row>
-
-
   </ion-grid>
+
+  <ion-modal #modal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="form-container">
+
+          <ion-card class="card-form">
+            <ion-card-header>
+              <ion-card-title *ngIf="!isUpdate">Crear un nuevo taller</ion-card-title>
+              <ion-card-title *ngIf="isUpdate">Actualizar taller</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+
+              <!-- User type hidden -->
+
+              <!-- name -->
+              <ion-item lines="none">
+                <ion-label position="stacked">Nombre del taller</ion-label>
+                <ion-input type="text" [(ngModel)]="data.name"></ion-input>
+              </ion-item>
+
+              <!-- description -->
+              <ion-item lines="none">
+                <ion-label position="stacked">Descripcion</ion-label>
+                <ion-input type="text" [(ngModel)]="data.description"></ion-input>
+              </ion-item>
+
+              <!-- Button -->
+              <div class="cont-button">
+                <ion-button *ngIf="!isUpdate" (click)="save()" fill="clear">
+                  Crear nuevo taller
+                </ion-button>
+                <ion-button *ngIf="isUpdate" (click)="update()" fill="clear">
+                  Actualizar taller
+                </ion-button>
+                <div *ngIf="!isUpdate" class="cont-link">
+                  <p (click)="addToList()" class="add">Agregar a la lista +</p>
+                </div>
+              </div>
+
+            </ion-card-content>
+          </ion-card>
+
+
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
 </ion-content>

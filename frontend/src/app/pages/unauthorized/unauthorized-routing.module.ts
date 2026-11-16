@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DasboardDPage } from './dasboard-d.page';
+import { UnauthorizedPage } from './unauthorized.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: DasboardDPage
+    component: UnauthorizedPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class DasboardDPageRoutingModule {}
+export class UnauthorizedPageRoutingModule {}

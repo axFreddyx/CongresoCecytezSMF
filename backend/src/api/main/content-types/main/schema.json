@@ -15,17 +15,72 @@
       "type": "json",
       "required": true
     },
-    "section_info": {
-      "type": "json",
-      "required": true
-    },
-    "section_call": {
-      "type": "json",
-      "required": true
-    },
     "section_contact": {
       "type": "json",
       "required": true
+    },
+    "styles": {
+      "type": "json",
+      "required": true
+    },
+    "fotos": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "requisitos": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "instrucciones": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "calendario": {
+      "type": "media",
+      "private": true,
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "convocatoria": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "programa": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "ficha_de_pago": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

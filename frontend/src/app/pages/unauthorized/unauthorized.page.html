@@ -1,0 +1,24 @@
+<app-header>Acceso no autorizado</app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="unauth-container">
+
+    <div class="unauth-card">
+      <ion-icon name="lock-closed-outline" class="unauth-icon"></ion-icon>
+
+      <h2 class="unauth-title">Acceso no autorizado</h2>
+
+      <p class="unauth-text">
+        No cuentas con permisos para ingresar a esta sección.  
+        Si crees que esto es un error, contacta al administrador.
+      </p>
+
+      <div class="cont-button">
+        <ion-button routerLink="/home" fill="clear" class="btn-return">
+          Volver al inicio
+        </ion-button>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

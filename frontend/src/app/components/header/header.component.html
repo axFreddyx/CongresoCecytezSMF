@@ -1,5 +1,6 @@
 <ion-header class="header">
   <div>
+    <img class="logo" src="https://www.recibonomina.cecytezac.edu.mx/Admin/assets/pages/img/login/logo.png" alt="Logo">
     <ng-content></ng-content>
   </div>
   
@@ -7,7 +8,8 @@
     <!-- <ion-button (click)="redirect('/login')" class="nav-btn" fill="clear" shape="round">
       Iniciar Sesión
     </ion-button> -->
-    <a *ngIf="!isLoginPage" routerLink="/login" class="nav-btn">Iniciar Sesión</a>
+    <a *ngIf="!isLoginPage && !isLogged" routerLink="/login" class="nav-btn">Iniciar Sesión</a>
+    <a *ngIf="isLogged" (click)="logout()" class="nav-btn">Cerrar Sesión</a>
   </div>
   
 </ion-header>

@@ -1,199 +1,85 @@
 <app-header>Mesas de trabajo</app-header>
 
 <ion-content>
-  <ion-button expand="block" class="btn-create">
-    Crear Mesa de trabajo
+  <ion-button *ngIf="isLogged && isAdmin" (click)="openModal()" expand="block" class="btn-create">
+    Crear Mesa
   </ion-button>
 
   <ion-grid fixed>
     <!-- Fila 1 -->
     <ion-row>
-      <ion-col size="12" sizeSm="4">
+      <ion-col *ngFor="let m of mesas" size="12" sizeSm="4">
         <ion-card>
           <ion-card-header>
-            <ion-card-title>Mesa de trabajo 1</ion-card-title>
+            <ion-card-title>{{m.name}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 2</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 3</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
+          <ion-card-content>{{m.description}}</ion-card-content>
+          <div class="cont-taller">
+            <div *ngIf="isLogged && isAdmin" class="actions">
+              <ion-icon (click)="openModalUpdate(m)" color="warning" name="create-outline"></ion-icon>
+              <ion-icon (click)="alert(m)" color="danger" name="trash-outline"></ion-icon>
+            </div>
+          </div>
         </ion-card>
       </ion-col>
     </ion-row>
-    <!-- Fila 2 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 4</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 5</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 6</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 3 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 7</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 8</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 9</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 4 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 10</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 11</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 12</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 5 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 13</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 14</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 15</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 6 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 16</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 17</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 18</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <!-- Fila 7 -->
-    <ion-row>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 19</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Mesa de trabajo 20</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeSm="4"></ion-col>
-    </ion-row>
-
-
   </ion-grid>
+
+  <ion-modal #modal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="form-container">
+
+          <ion-card class="card-form">
+            <ion-card-header>
+              <ion-card-title *ngIf="!isUpdate">Crear una nueva mesa</ion-card-title>
+              <ion-card-title *ngIf="isUpdate">Actualizar mesa</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+
+              <!-- User type hidden -->
+
+              <!-- name -->
+              <ion-item lines="none">
+                <ion-label position="stacked">Nombre de la mesa</ion-label>
+                <ion-input type="text" [(ngModel)]="data.name"></ion-input>
+              </ion-item>
+
+              <!-- description -->
+              <ion-item lines="none">
+                <ion-label position="stacked">Descripcion</ion-label>
+                <ion-input type="text" [(ngModel)]="data.description"></ion-input>
+              </ion-item>
+
+              <!-- Button -->
+              <div class="cont-button">
+                <ion-button *ngIf="!isUpdate" (click)="save()" fill="clear">
+                  Crear nueva mesa
+                </ion-button>
+                <ion-button *ngIf="isUpdate" (click)="update()" fill="clear">
+                  Actualizar mesa
+                </ion-button>
+                <div *ngIf="!isUpdate" class="cont-link">
+                  <p (click)="addToList()" class="add">Agregar a la lista +</p>
+                </div>
+              </div>
+
+            </ion-card-content>
+          </ion-card>
+
+
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
 </ion-content>

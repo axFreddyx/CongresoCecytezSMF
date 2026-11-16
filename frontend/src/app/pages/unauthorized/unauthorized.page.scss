@@ -1,0 +1,126 @@
+@import 'src/theme/variables.scss';
+
+.unauth-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* =============================
+   TARJETA PRINCIPAL
+============================= */
+.unauth-card {
+    background: $white;
+    padding: 35px 28px;
+    border-radius: 22px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0px 10px 26px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba($secundario, 0.35);
+    animation: fadeInUp 0.6s ease both;
+}
+
+/* =============================
+   ICONO
+============================= */
+.unauth-icon {
+    font-size: 4rem;
+    color: $principal-2;
+    margin-bottom: 10px;
+    animation: pulseIcon 1.6s infinite ease-in-out;
+}
+
+/* =============================
+   TITULO
+============================= */
+.unauth-title {
+    font-size: 1.6rem;
+    font-weight: $bold;
+    color: $principal;
+    margin-bottom: 10px;
+}
+
+/* =============================
+   TEXTO
+============================= */
+.unauth-text {
+    font-size: 0.95rem;
+    color: $tercero-2;
+    margin-bottom: 22px;
+    line-height: 1.4rem;
+}
+
+/* =============================
+   BOTÓN REGRESAR
+============================= */
+.btn-return {
+    background: $principal;
+    color: $white;
+    width: 100%;
+    font-weight: $bold;
+    border-radius: 14px;
+    box-shadow: 0px 4px 14px rgba($principal, 0.28);
+    letter-spacing: 0.4px;
+    padding: 12px 0;
+
+    --background-hover: $principal-2;
+    --background-activated: $principal-2;
+
+    &:active {
+        transform: scale(0.97);
+    }
+}
+
+/* =============================
+   ANIMACIONES
+============================= */
+@keyframes pulseIcon {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Fade-in bonito */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 480px) {
+    .unauth-card {
+        padding: 26px 20px;
+    }
+
+    .unauth-title {
+        font-size: 1.4rem;
+    }
+
+    .unauth-text {
+        font-size: 0.9rem;
+    }
+
+    .unauth-icon {
+        font-size: 3.4rem;
+    }
+}

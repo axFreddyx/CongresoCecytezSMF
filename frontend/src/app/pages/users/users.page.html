@@ -1,56 +1,248 @@
-<app-header>Mis Acciones</app-header>
+<app-header></app-header>
+
 <ion-content>
-  <div class="filters">
-    <ion-searchbar class="search-input" placeholder="Buscar por nombre (Ingresa el nombre completo)"
-      inputmode="decimal" type="decimal" [debounce]="250" showCancelButton="always"></ion-searchbar>
-    <div class="btn-filters-container">
-      <ion-label>Es miembro cecytez:</ion-label>
-      <div class="btn-filters">
-        <ion-button fill="outline" color="success" size="small">Si</ion-button>
-        <ion-button fill="outline" color="danger" size="small">No</ion-button>
-      </div>
-    </div>
+
+  <!-- Acción principal -->
+  <div *ngIf="isLogged && isAdmin" class="cont-button">
+    <ion-button (click)="openModal()" fill="clear" shape="round">
+      Crear nuevo usuario
+    </ion-button>
   </div>
-  <table>
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Nombre completo</th>
-        <th>Nombre de usuario</th>
-        <th>Telefono</th>
-        <th>Email</th>
-        <th>Genero</th>
-        <th>Miembro Cecytez</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Juan Pérez</td>
-        <td>xJuanX</td>
-        <td>1234567890</td>
-        <td>Correo@correo.com</td>
-        <td>Masculino</td>
-        <td>No</td>
-        <td>
-          <ion-button fill="outline" size="small" color="warning">Editar</ion-button>
-          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>María López</td>
-        <td>xMariax</td>
-        <td>0987654321</td>
-        <td>Correo2@correo.com</td>
-        <td>Femenino</td>
-        <td>Si</td>
-        <td>
-          <ion-button fill="outline" size="small" color="warning">Editar</ion-button>
-          <ion-button fill="outline" size="small" color="danger">Rechazar</ion-button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
+  <!-- FILTROS -->
+  <ion-card *ngIf="isLogged && isAdmin" class="filters-card">
+    <ion-card-header>
+      <ion-card-title>Filtros</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <!-- Buscar -->
+      <ion-searchbar placeholder="Buscar por nombre" [debounce]="250" (ionInput)="search($event)">
+      </ion-searchbar>
+
+      <!-- Miembro Cecytez -->
+      <div class="filter-block">
+        <ion-label>Es miembro Cecytez:</ion-label>
+
+        <div class="btn-filters">
+          <ion-button fill="outline" [color]="filterCecytez === true ? 'success' : 'medium'" size="small"
+            (click)="cecytezMember(true)">
+            Sí
+          </ion-button>
+
+          <ion-button fill="outline" [color]="filterCecytez === false ? 'danger' : 'medium'" size="small"
+            (click)="cecytezMember(false)">
+            No
+          </ion-button>
+
+          <ion-button fill="clear" size="small" (click)="cecytezMember(null)">
+            Limpiar
+          </ion-button>
+        </div>
+      </div>
+
+      <!-- Tipo de usuario -->
+      <div class="filter-block">
+        <ion-label>Tipo de usuario:</ion-label>
+
+        <div class="btn-filters">
+          <ion-button fill="outline" [color]="filterCongreso === true ? 'primary' : 'medium'" size="small"
+            (click)="getUsersCongreso()">
+            Congreso
+          </ion-button>
+
+          <ion-button fill="outline" [color]="filterCongreso === false ? 'secondary' : 'medium'" size="small"
+            (click)="getUsersSystems()">
+            Sistemas
+          </ion-button>
+
+          <ion-button fill="clear" size="small" (click)="clearCongresoFilter()">
+            Limpiar
+          </ion-button>
+        </div>
+      </div>
+
+      <!-- Rol -->
+      <div class="filter-block">
+        <ion-label>Filtrar por rol:</ion-label>
+
+        <div class="btn-filters roles">
+
+          <ion-button fill="outline" [color]="activeRole === 'asistente' ? 'primary' : 'medium'" size="small"
+            (click)="userByRole('asistente')">
+            Asistente
+          </ion-button>
+
+          <ion-button fill="outline" [color]="activeRole === 'ponente' ? 'primary' : 'medium'" size="small"
+            (click)="userByRole('ponente')">
+            Ponente
+          </ion-button>
+
+          <ion-button fill="outline" [color]="activeRole === 'co_autor' ? 'primary' : 'medium'" size="small"
+            (click)="userByRole('co_autor')">
+            Co Autor
+          </ion-button>
+
+          <ion-button fill="outline" [color]="activeRole === 'dictaminador' ? 'primary' : 'medium'" size="small"
+            (click)="userByRole('dictaminador')">
+            Dictaminador
+          </ion-button>
+
+          <ion-button fill="outline" [color]="activeRole === 'moderador' ? 'secondary' : 'medium'" size="small"
+            (click)="userByRole('moderador')">
+            Moderador
+          </ion-button>
+
+          <ion-button fill="outline" [color]="activeRole === 'administrador' ? 'secondary' : 'medium'" size="small"
+            (click)="userByRole('administrador')">
+            Administrador
+          </ion-button>
+
+          <ion-button fill="clear" size="small" (click)="clearRoleFilter()">
+            Limpiar
+          </ion-button>
+
+        </div>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+
+  <!-- TABLA DE USUARIOS -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Lista de usuarios</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre completo</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Género</th>
+            <th>Rol</th>
+            <th *ngIf="isLogged && isAdmin">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let u of users">
+            <td>{{ u.id }}</td>
+            <td>{{ u.name }} {{ u.last_name }}</td>
+            <td>{{ u.number_phone }}</td>
+            <td>{{ u.email }}</td>
+            <td>{{ u.gender }}</td>
+            <td>{{ u.role.name }}</td>
+
+            <td *ngIf="isLogged && isAdmin" class="actions-cell">
+              <ion-button (click)="openModalUpdate(u)" fill="outline" size="small" color="warning">
+                Editar
+              </ion-button>
+
+              <ion-button (click)="alert(u)" fill="outline" size="small" color="danger">
+                Eliminar
+              </ion-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-modal #modal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="form-container">
+
+          <ion-card class="card-form">
+            <ion-card-header>
+              <ion-card-title>
+                {{ isUpdate ? 'Editar usuario' : 'Crear un nuevo usuario' }}
+              </ion-card-title>
+
+            </ion-card-header>
+
+            <ion-card-content>
+
+              <!-- User type hidden -->
+
+              <!-- Name -->
+              <ion-item lines="none">
+                <ion-label position="stacked">Nombre(s)</ion-label>
+                <ion-input type="text" [(ngModel)]="data.name"></ion-input>
+              </ion-item>
+
+              <!-- Last name -->
+              <ion-item lines="none">
+                <ion-label position="stacked">Apellidos</ion-label>
+                <ion-input type="text" [(ngModel)]="data.last_name"></ion-input>
+              </ion-item>
+
+              <!-- Username -->
+              <ion-item lines="none">
+                <ion-label position="stacked">Nombre de usuario</ion-label>
+                <ion-input type="text" [(ngModel)]="data.username"></ion-input>
+              </ion-item>
+
+              <!-- Username -->
+              <ion-item lines="none">
+                <ion-label position="stacked">Correo electronico</ion-label>
+                <ion-input type="text" [(ngModel)]="data.email"></ion-input>
+              </ion-item>
+
+              <!-- Phone number -->
+              <ion-item lines="none">
+                <ion-label position="stacked">Telefono</ion-label>
+                <ion-input type="tel" [(ngModel)]="data.phone_number"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none" class="register-item">
+                <ion-label class="register-label">Genero</ion-label>
+                <ion-select placeholder="Selecciona una opción" [(ngModel)]="data.gender" class="register-select">
+                  <ion-select-option value="Masculino">Masculino</ion-select-option>
+                  <ion-select-option value="Femenino">Femenino</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <!-- Rol -->
+              <ion-item lines="none" class="register-item">
+                <ion-label class="register-label">Rol</ion-label>
+                <ion-select placeholder="Selecciona una opción" class="register-select" [(ngModel)]="data.role">
+                  <ion-select-option *ngFor="let r of roles" [value]="r.id">
+                    {{ r.name }}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <!-- Button -->
+              <div class="cont-button">
+                <ion-button *ngIf="!isUpdate" (click)="register()" fill="clear">
+                  Crear nuevo usuario
+                </ion-button>
+                <ion-button *ngIf="isUpdate" (click)="update()" fill="clear">
+                  Actualizar usuario
+                </ion-button>
+              </div>
+
+            </ion-card-content>
+          </ion-card>
+
+
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

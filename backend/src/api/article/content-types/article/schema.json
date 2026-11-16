@@ -39,6 +39,21 @@
       "relation": "oneToOne",
       "target": "api::work-table.work-table",
       "inversedBy": "article"
+    },
+    "isRechazed": {
+      "type": "boolean",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "accepted"
+            },
+            true
+          ]
+        }
+      },
+      "required": true,
+      "default": false
     }
   }
 }

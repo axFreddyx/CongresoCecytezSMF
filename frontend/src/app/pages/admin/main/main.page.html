@@ -1,7 +1,6 @@
 <app-header>
   <!-- <img src="../../../assets/cecytez.png" alt=""> -->
 
-  Editar contenido principal
 </app-header>
 <ion-content class="register-content">
 
@@ -23,25 +22,31 @@
               <!-- Nombre -->
               <ion-item lines="none" class="register-item">
                 <ion-label position="stacked" class="register-label">Titulo</ion-label>
-                <ion-input type="text" name="name" class="register-input"></ion-input>
+                <ion-input [(ngModel)]="data.main.section_main.title" placeholder="Ingrese el titulo principal..."
+                  type="text" name="name" class="register-input"></ion-input>
               </ion-item>
               <ion-item lines="none" class="register-item">
                 <ion-label position="stacked" class="register-label">Descripción</ion-label>
-                <ion-input type="text" name="name" class="register-input"></ion-input>
+                <ion-input [(ngModel)]="data.main.section_main.description" placeholder="Añade una descripción..."
+                  type="text" name="name" class="register-input"></ion-input>
               </ion-item>
               <ion-item lines="none" class="file-upload-item">
                 <ion-label position="stacked">Subir fotos</ion-label>
 
                 <div class="custom-file-upload">
-                  <input class="upload_file" type="file" accept=".png/.jpg/.jpeg" id="comprobante" />
-                  <label for="comprobante" class="btn-upload">
+                  <!-- FOTO PRINCIPAL -->
+                  <input id="fotos" class="upload_file" type="file" accept=".png,.jpg"
+                    (change)="onFile($event, 'fotos')" id="comprobante" />
+
+
+                  <!-- REQUISITOS -->
+                  <label for="fotos" class="btn-upload">
                     <ion-icon name="cloud-upload-outline"></ion-icon>
                     Elegir archivo
                   </label>
                   <!-- <span id="file-name">Ningún archivo seleccionado</span> -->
                 </div>
               </ion-item>
-
 
             </ion-card-content>
           </ion-card>
@@ -59,9 +64,11 @@
 
               <ion-grid fixed>
                 <ion-row>
-                  <ion-col size="12" sizeSm="6">
+                  <ion-col size="12">
                     <div class="custom-file-upload">
-                      <input class="upload_file" type="file" accept=".pdf" id="requisitos" />
+                      <input class="upload_file" type="file" accept=".pdf" (change)="onFile($event, 'requisitos')"
+                        id="requisitos" />
+
                       <label for="requisitos" class="btn-upload">
                         <ion-icon name="cloud-upload-outline"></ion-icon>
                         Subir requisitos
@@ -69,9 +76,11 @@
                       <!-- <span id="file-name">Ningún archivo seleccionado</span> -->
                     </div>
                   </ion-col>
-                  <ion-col size="12" sizeSm="6">
+                  <ion-col size="12">
                     <div class="custom-file-upload">
-                      <input class="upload_file" type="file" accept=".pdf" id="instrucciones" />
+                      <input class="upload_file" type="file" accept=".pdf" (change)="onFile($event, 'instrucciones')"
+                        id="instrucciones" />
+
                       <label for="instrucciones" class="btn-upload">
                         <ion-icon name="cloud-upload-outline"></ion-icon>
                         Subir instrucciones
@@ -83,7 +92,9 @@
                 <ion-row>
                   <ion-col size="12">
                     <div class="custom-file-upload">
-                      <input class="upload_file" type="file" accept=".pdf" id="calendario" />
+                      <input class="upload_file" type="file" accept=".pdf" (change)="onFile($event, 'calendario')"
+                        id="calendario" />
+
                       <label for="calendario" class="btn-upload">
                         <ion-icon name="cloud-upload-outline"></ion-icon>
                         Subir calendario
@@ -113,7 +124,9 @@
                 <ion-row>
                   <ion-col size="12">
                     <div class="custom-file-upload">
-                      <input class="upload_file" type="file" accept=".pdf" id="convocatoria" />
+                      <input class="upload_file" type="file" accept=".pdf" (change)="onFile($event, 'convocatoria')"
+                        id="convocatoria" />
+
                       <label for="convocatoria" class="btn-upload">
                         <ion-icon name="cloud-upload-outline"></ion-icon>
                         Subir convocatoria
@@ -123,9 +136,11 @@
                   </ion-col>
                 </ion-row>
                 <ion-row>
-                  <ion-col size="12" sizeSm="6">
+                  <ion-col size="12">
                     <div class="custom-file-upload">
-                      <input class="upload_file" type="file" accept=".pdf" id="programa" />
+                      <input class="upload_file" type="file" accept=".pdf" (change)="onFile($event, 'programa')"
+                        id="programa" />
+
                       <label for="programa" class="btn-upload">
                         <ion-icon name="cloud-upload-outline"></ion-icon>
                         Subir programa
@@ -133,12 +148,11 @@
                       <!-- <span id="file-name">Ningún archivo seleccionado</span> -->
                     </div>
                   </ion-col>
-                  <ion-col size="12" sizeSm="6">
+                  <ion-col size="12">
                     <div class="custom-file-upload">
-                      <input class="upload_file" type="file" accept=".pdf" id="hoteles" />
-                      <label for="hoteles" class="btn-upload">
-                        <ion-icon name="cloud-upload-outline"></ion-icon>
-                        Subir hoteles
+                      <label (click)="openModal()" class="btn-upload">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                        Agregar hoteles
                       </label>
                       <!-- <span id="file-name">Ningún archivo seleccionado</span> -->
                     </div>
@@ -161,20 +175,24 @@
 
               <!-- Nombre -->
               <ion-item lines="none" class="register-item">
-                <ion-label stacked="stacked" class="register-label">Telefono</ion-label>
-                <ion-input type="number" name="name" class="register-input"></ion-input>
+                <ion-label position="stacked" class="register-label">Telefono</ion-label>
+                <ion-input [(ngModel)]="data.main.contacto.phone_number" placeholder="Ingresa un numero de telefono..."
+                  type="number" name="name" class="register-input"></ion-input>
               </ion-item>
               <ion-item lines="none" class="register-item">
                 <ion-label position="stacked" class="register-label">Correo electronico</ion-label>
-                <ion-input type="email" name="name" class="register-input"></ion-input>
+                <ion-input [(ngModel)]="data.main.contacto.email" placeholder="Ingresa un correo electronico..."
+                  type="email" name="name" class="register-input"></ion-input>
               </ion-item>
               <ion-item lines="none" class="register-item">
                 <ion-label position="stacked" class="register-label">Dirección</ion-label>
-                <ion-input type="text" name="name" class="register-input"></ion-input>
+                <ion-input [(ngModel)]="data.main.contacto.address" placeholder="Ingresa la dirección..." type="text"
+                  name="name" class="register-input"></ion-input>
               </ion-item>
               <ion-item lines="none" class="register-item">
                 <ion-label position="stacked" class="register-label">Horario</ion-label>
-                <ion-input type="text" name="name" class="register-input"></ion-input>
+                <ion-input [(ngModel)]="data.main.contacto.schedule" placeholder="Ingresa el horario..." type="text"
+                  name="name" class="register-input"></ion-input>
               </ion-item>
 
             </ion-card-content>
@@ -182,12 +200,12 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="12">
+        <ion-col sizeSm="6" size="12">
           <ion-card class="card-form ">
 
             <ion-card-header class="register-header">
               <ion-card-title class="register-title">
-                Principal
+                Datos bancarios
               </ion-card-title>
             </ion-card-header>
 
@@ -195,38 +213,46 @@
 
               <!-- Nombre -->
               <ion-item lines="none" class="register-item">
-                <ion-label stacked="stacked" class="register-label">Titular de la cuenta</ion-label>
-                <ion-input type="text" name="name" class="register-input"></ion-input>
+                <ion-label position="stacked" class="register-label">Titular de la cuenta (Para
+                  transferencias)</ion-label>
+                <ion-input [(ngModel)]="data.datos_bancarios.titular_name"
+                  placeholder="Ingresa el nombre de titular de la cuenta..." type="text" name="name"
+                  class="register-input"></ion-input>
               </ion-item>
               <ion-item lines="none" class="register-item">
-                <ion-label position="stacked" class="register-label">Banco</ion-label>
-                <ion-input type="text" name="name" class="register-input"></ion-input>
+                <ion-label position="stacked" class="register-label">Banco (Para transferencias)</ion-label>
+                <ion-input [(ngModel)]="data.datos_bancarios.bank" placeholder="Ingresa el nombre del banco..."
+                  type="text" name="name" class="register-input"></ion-input>
               </ion-item>
               <ion-grid fixed>
                 <ion-row>
-                  <ion-col size="6">
+                  <ion-col size="12">
                     <ion-item lines="none" class="register-item">
                       <ion-label position="stacked" class="register-label">Numero de la cuenta</ion-label>
-                      <ion-input type="text" name="name" class="register-input"></ion-input>
+                      <ion-input [(ngModel)]="data.datos_bancarios.account_number"
+                        placeholder="Ingresa el numero de cuenta..." type="text" name="name"
+                        class="register-input"></ion-input>
                     </ion-item>
                   </ion-col>
-                  <ion-col size="6">
+                  <ion-col size="12">
                     <ion-item lines="none" class="register-item">
                       <ion-label position="stacked" class="register-label">CLABE Interbancaria (Para
                         transferencias)</ion-label>
-                      <ion-input type="text" name="name" class="register-input"></ion-input>
+                      <ion-input [(ngModel)]="data.datos_bancarios.clabe" placeholder="Ingresa la CLABE..." type="text"
+                        name="name" class="register-input"></ion-input>
                     </ion-item>
 
                   </ion-col>
                 </ion-row>
               </ion-grid>
 
-
               <ion-item lines="none" class="file-upload-item">
                 <ion-label position="stacked">Subir archivo</ion-label>
 
                 <div class="custom-file-upload">
-                  <input class="upload_file" type="file" accept=".png/.jpg/.jpeg" id="ficha_de_pago" />
+                  <input class="upload_file" type="file" accept=".png,.jpg" (change)="onFile($event, 'ficha_de_pago')"
+                    id="ficha_de_pago" />
+
                   <label for="ficha_de_pago" class="btn-upload">
                     <ion-icon name="cloud-upload-outline"></ion-icon>
                     Subir ficha de pago
@@ -239,48 +265,105 @@
           </ion-card>
 
         </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12">
+        <ion-col sizeSm="6" size="12">
           <ion-card class="card-form ">
 
             <ion-card-header class="register-header">
               <ion-card-title class="register-title">
-                Estilos de la pagina
+                Costos
               </ion-card-title>
             </ion-card-header>
 
             <ion-card-content class="register-card-content">
+
+              <!-- Nombre -->
+              <ion-item lines="none" class="register-item">
+                <ion-label position="stacked" class="register-label">Costos Asistentes</ion-label>
+                <ion-input [(ngModel)]="data.costos.price_asistente"
+                  placeholder="Ingresa el costo para los asistentes..." type="number" name="name"
+                  class="register-input"></ion-input>
+              </ion-item>
+              <ion-item lines="none" class="register-item">
+                <ion-label position="stacked" class="register-label">Costos Ponentes</ion-label>
+                <ion-input [(ngModel)]="data.costos.price_ponente" placeholder="Ingresa el costo para los ponentes..."
+                  type="number" name="name" class="register-input"></ion-input>
+              </ion-item>
               <ion-grid fixed>
                 <ion-row>
-                  <ion-col size="12" sizeSm="6">
+                  <ion-col size="12">
                     <ion-item lines="none" class="register-item">
-                      <ion-label stacked="stacked" >Color Primario</ion-label>
-                      <ion-input type="color" name="name" class="register-input"></ion-input>
+                      <ion-label position="stacked" class="register-label">Costos talleres</ion-label>
+                      <ion-input [(ngModel)]="data.costos.price_talleres"
+                        placeholder="Ingresa el costo para los talleres..." type="number" name="name"
+                        class="register-input"></ion-input>
                     </ion-item>
                   </ion-col>
-                  <ion-col size="12" sizeSm="6">
+                  <ion-col size="12">
                     <ion-item lines="none" class="register-item">
-                      <ion-label position="stacked">Color Primario 2</ion-label>
-                      <ion-input type="color" name="name" class="register-input"></ion-input>
+                      <ion-label position="stacked" class="register-label">Cargo extra</ion-label>
+                      <ion-input [(ngModel)]="data.costos.surcharge" placeholder="Ingresa el cargo extra..."
+                        type="number" name="name" class="register-input"></ion-input>
                     </ion-item>
                   </ion-col>
-                </ion-row>
-                <ion-row>
-                   <ion-col size="12" sizeSm="6">
+                  <ion-col size="12">
                     <ion-item lines="none" class="register-item">
-                      <ion-label position="stacked" >Color Secundario</ion-label>
-                      <ion-input type="color" name="name" class="register-input"></ion-input>
-                    </ion-item>
-                  </ion-col>
-                  <ion-col size="12" sizeSm="6">
-                    <ion-item lines="none" >
-                      <ion-label position="stacked" class="register-label">Color Secundario 2</ion-label>
-                      <ion-input type="color" name="name" class="register-input"></ion-input>
+                      <ion-label position="stacked" class="register-label">Descuento Miembros Cecytez</ion-label>
+                      <ion-input [(ngModel)]="data.costos.discount_cecytez_member" placeholder="Ingresa el descuento..."
+                        type="number" name="name" class="register-input"></ion-input>
                     </ion-item>
                   </ion-col>
                 </ion-row>
               </ion-grid>
+
+            </ion-card-content>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+      <!-- ESTILOS -->
+      <ion-row>
+        <ion-col size="12">
+          <ion-card class="admin-card">
+            <ion-card-header>
+              <ion-card-title>Colores de la Página</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12" sizeSm="6">
+                    <ion-item lines="none" class="input-item">
+                      <ion-label position="stacked">Color Primario</ion-label>
+                      <ion-input [(ngModel)]="data.main.styles.colorPrimario" type="color"></ion-input>
+                    </ion-item>
+                  </ion-col>
+
+                  <ion-col size="12" sizeSm="6">
+                    <ion-item lines="none" class="input-item">
+                      <ion-label position="stacked">Color Primario 2</ion-label>
+                      <ion-input [(ngModel)]="data.main.styles.colorPrimario2" type="color"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col size="12" sizeSm="6">
+                    <ion-item lines="none" class="input-item">
+                      <ion-label position="stacked">Color Secundario</ion-label>
+                      <ion-input [(ngModel)]="data.main.styles.colorSecundario" type="color"></ion-input>
+                    </ion-item>
+                  </ion-col>
+
+                  <ion-col size="12" sizeSm="6">
+                    <ion-item lines="none" class="input-item">
+                      <ion-label position="stacked">Color Secundario 2</ion-label>
+                      <ion-input [(ngModel)]="data.main.styles.colorSecundario2" type="color"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -288,12 +371,64 @@
     </ion-grid>
 
     <div class="cont-button">
-      <ion-button fill="clear" >
+      <ion-button (click)="create()" fill="clear">
         Guardar Cambios
       </ion-button>
     </div>
-
-
   </div>
+  <ion-modal #modal>
+    <ng-template>
 
+      <div class="card-form">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Agregar Hotel</ion-title>
+            <ion-buttons slot="end">
+              <ion-icon class="close-modal" (click)="modal.dismiss()" name="close-outline"></ion-icon>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding">
+
+          <!-- Formulario (sin TS) -->
+          <ion-item>
+            <ion-label position="stacked">Nombre del hotel</ion-label>
+            <ion-input [(ngModel)]="data.hoteles.name" placeholder="Ingresa el Nombre del hotel..."
+              type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Ubicación</ion-label>
+            <ion-input [(ngModel)]="data.hoteles.location" placeholder="Ingresa las cordenadas del hotel..."
+              type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Sitio Web</ion-label>
+            <ion-input [(ngModel)]="data.hoteles.website" placeholder="Ingresa el link del sitio web..."
+              type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Contacto</ion-label>
+            <ion-input [(ngModel)]="data.hoteles.contact" placeholder="Ingresa un correo electronico..."
+              type="email"></ion-input>
+          </ion-item>
+
+          <div class="custom-file-upload">
+            <input class="upload_file" type="file" accept=".png,.jpg" (change)="onFile($event, 'images')"
+              id="hoteles" />
+
+            <label for="hoteles" class="btn-upload">
+              <ion-icon name="cloud-upload-outline"></ion-icon>
+              Subir imagen del hotel
+            </label>
+            <!-- <span id="file-name">Ningún archivo seleccionado</span> -->
+          </div>
+
+        </ion-content>
+      </div>
+    </ng-template>
+  </ion-modal>
 </ion-content>
